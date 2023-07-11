@@ -12,7 +12,7 @@ class Scrapper:
         self.pracuj()
         
     def noFluffJobs(self):
-            
+        
         response = requests.get(self.list_of_urls[1])
         soup = BeautifulSoup(response.text, "html.parser")
         h3_elements = soup.select('nfj-postings-list h3')
