@@ -34,9 +34,11 @@ class Scrapper:
         titles = []
         list_of_headings = soup.find_all("h2", class_="listing_buap3b6")
         for x in range(len(list_of_headings)):
-
-            heading = list_of_headings[x].find("a")
-            titles.append({'title': heading.text, "link":heading["href"]})
+            try:
+                heading = list_of_headings[x].find("a")
+                titles.append({'title': heading.text, "link":heading["href"]})
+            except AttributeError:
+                None
             
         self.main_dict['pracuj'] = titles
         
